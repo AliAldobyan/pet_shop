@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a pet</title>
-</head>
-<body>
-    <form action="{% url 'pet-create' %}" method="POST" enctype="multipart/form-data">
-        {{form.as_p}}
-        {% csrf_token %}
-        <input type="submit" value="Save">
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create{% endblock title %}
+
+{% block content %}
+<div class="jumbotron m-3 rounded my-5">
+
+  <form action="{% url 'pet-create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form|crispy}}
+
+    <button type="submit" name="button" class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="bottom" title="Create">Create</button>
+
+
+  </form>
+
+</div>
+
+{% endblock content %}

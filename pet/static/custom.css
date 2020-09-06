@@ -1,0 +1,9 @@
+img{
+    width: 350px; /* You can set the dimensions to whatever you want */
+    height: 300px;
+    object-fit: cover;
+}
+
+.detail-card img{
+    height: 700px;
+}

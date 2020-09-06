@@ -1,23 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <p>{{pet.name}}</p>
-    <p>{{pet.age}}</p>
-    <p>{{pet.available}}</p>
-    {%if pet.image.url %}
-    <img src="{{ pet.image.url }}" >
-    {%endif%}
-    <p>{{pet.price}}</p>
+{% extends "base.html" %}
+
+{% block title %}Detail{% endblock title %}
+
+{% block content %}
+
+<div class="jumbotron m-3 rounded">
+
+
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{pet.name}}</h2>
+        <p class="card-text"><small class="text-muted">Age: {{pet.age}}</small></p>
+        {% if pet.available %}
+          <p class="card-text"><small class="text-muted">Available</small></p>
+          {% else %}
+              <p class="card-text"><small class="text-muted">Not Available</small></p>
+        {% endif %}
+
+        <p class="card-text"><small class="text-muted">Price: {{pet.price}}</small></p>
+      </div>
+      {% if pet.image %}
+          <img src="{{pet.image.url}}" class="card-img-bottom" alt="...">
+      {% endif %}
+
+    </div>
+
 
     <a href="{% url 'pet-update' pet.id %}">
-      <button type="button" name="button">Update</button>
+        <button type="submit" name="button" class="btn btn-md btn-success m-3" data-toggle="tooltip" data-placement="bottom" title="Update">Update</button>
     </a>
     <a href="{% url 'pet-delete' pet.id %}">
-      <button type="button" name="button">Delete</button>
+        <button type="submit" name="button" class="btn btn-md btn-danger mt3" data-toggle="tooltip" data-placement="bottom" title="Delete">Delete</button>
     </a>
-  </body>
-</html>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>{{pet.name}}</p>
+    <p>{{pet.age}}</p>
+    <p>{{pet.available}}</p>
+    {%if pet.image.url %}
+    <img src="{{ pet.image.url }}" >
+    {%endif%}
+    <p>{{pet.price}}</p>
+  </body>
+</html>

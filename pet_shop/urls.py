@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-
-from pet.views import list_view
+# another method
+# from pet.views import list_view,
+from pet import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('list/', list_view, name='pet-list')
+    path('list/', views.list_view, name='pet-list'),
+    path('detail/', views.detail_view, name='pet-detail'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

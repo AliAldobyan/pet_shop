@@ -24,7 +24,7 @@ from pet import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('list/', views.list_view, name='pet-list'),
-    path('detail/', views.detail_view, name='pet-detail'),
+    path('detail/<int:pet_id>', views.detail_view, name='pet-detail'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

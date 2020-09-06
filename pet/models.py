@@ -7,4 +7,8 @@ class Pet(models.Model):
     available = models.BooleanField(default=True)
     image = models.ImageField()
     price = models.DecimalField(max_digits=8,decimal_places=2)
-    
+
+    #fixed to the admin view
+    def __str__(self):
+
+        return self.name

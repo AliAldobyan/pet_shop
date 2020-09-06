@@ -25,8 +25,22 @@ def create_pet(request):
         form = PetForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect('pet-list')
+            return redirect('pet-list')
     context = {
         "form" : form
     }
     return render(request, 'create_pet.html', context)
+
+def update_pet(request, pet_id):
+    pet_obj = Pet.objects.get(id=pet_id)
+    form = PetForm(instance=pet_obj)
+    if request.method == "POST":
+        form = PetForm(request.POST, request.FILES, instance=pet_obj)
+        if form.is_valid():
+            form.save()
+            return redirect('pet-detail', pet_id=pet_obj.id)
+    context = {
+        "form" : form,
+        "pet": pet_obj,
+    }
+    return render(request, 'update_pet.html', context)

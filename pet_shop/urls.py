@@ -26,6 +26,8 @@ urlpatterns = [
     path('list/', views.list_view, name='pet-list'),
     path('detail/<int:pet_id>', views.detail_view, name='pet-detail'),
     path('create/', views.create_pet, name='pet-create'),
+    path('update/<int:pet_id>', views.update_pet, name='pet-update'),
+
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

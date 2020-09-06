@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Pet
+from .forms import PetForm
 # Create your views here.
 
 def list_view(request):
@@ -21,11 +22,10 @@ def detail_view(request, pet_id):
 def create_pet(request):
     form = PetForm()
     if request.method == "POST":
-        form = PetForm(request.POST)
+        form = PetForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             redirect('pet-list')
-
     context = {
         "form" : form
     }

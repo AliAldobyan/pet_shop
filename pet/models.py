@@ -6,7 +6,7 @@ class Pet(models.Model):
     age = models.IntegerField()
     available = models.BooleanField(default=True)
     image = models.ImageField()
-    price = models.DecimalField(max_digits=8,decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
 
     #fixed to the admin view
     def __str__(self):

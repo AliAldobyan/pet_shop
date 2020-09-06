@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from pet import views
 
 urlpatterns = [
+    path('', views.list_view),
     path('admin/', admin.site.urls),
     path('list/', views.list_view, name='pet-list'),
     path('detail/<int:pet_id>', views.detail_view, name='pet-detail'),

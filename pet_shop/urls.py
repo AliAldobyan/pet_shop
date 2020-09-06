@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pet.views import list_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('list/', list_view, name='pet-list')
 ]

@@ -44,3 +44,7 @@ def update_pet(request, pet_id):
         "pet": pet_obj,
     }
     return render(request, 'update_pet.html', context)
+
+def delete_pet(request, pet_id):
+    Pet.objects.get(id=pet_id).delete()
+    return redirect('pet-list')

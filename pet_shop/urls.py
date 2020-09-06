@@ -27,6 +27,8 @@ urlpatterns = [
     path('detail/<int:pet_id>', views.detail_view, name='pet-detail'),
     path('create/', views.create_pet, name='pet-create'),
     path('update/<int:pet_id>', views.update_pet, name='pet-update'),
+    path('delete/<int:pet_id>', views.delete_pet, name='pet-delete'),
+
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

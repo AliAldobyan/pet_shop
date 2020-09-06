@@ -12,5 +12,12 @@
     <img src="{{ pet.image.url }}" >
     {%endif%}
     <p>{{pet.price}}</p>
+
+    <a href="{% url 'pet-update' pet.id %}">
+      <button type="button" name="button">Update</button>
+    </a>
+    <a href="{% url 'pet-delete' pet.id %}">
+      <button type="button" name="button">Delete</button>
+    </a>
   </body>
 </html>

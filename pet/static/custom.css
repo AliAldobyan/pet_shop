@@ -1,3 +1,18 @@
+body{
+    background-color:#eef5fa;
+}
+.card {
+    border-radius: 1rem !important;
+}
+.card-img-top{
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.btn-round{
+    border-radius: 1.5rem;
+}
+
 img{
     width: 350px; /* You can set the dimensions to whatever you want */
     height: 300px;

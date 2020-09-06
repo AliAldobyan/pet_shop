@@ -7,26 +7,25 @@
 <div class="row">
 
 
-    {% for pet in pets %}
-    <div class="col-12 col-sm-6 col-md-4 my-5">
-      <div class="card list-card">
-        {% if pet.image  %}
-          <img src="{{pet.image.url}}" class="card-img-top " alt="...">
-        {% endif %}
-
-        <div class="card-body">
-          <h5 class="card-title">{{pet.name}}</h5>
-          <hr>
-          <p class="card-text">Pet Age: {{pet.age}}</p>
-        </div>
-        <div class="card-footer" >
-          <a href="{% url 'pet-detail' pet.id %}">
-            <button type="submit" name="button" class="btn btn-lg btn-outline-primary btn-block">Read More</button>
-          </a>
-        </div>
+  {% for pet in pets %}
+  <div class="col-lg-4 col-sm-6 mb-4">
+    <div class="card h-100 shadow">
+      {% if pet.image  %}
+      <a href="#"><img class="card-img-top" src="{{pet.image.url}}" alt=""></a>
+      {% else %}
+      <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+      {% endif %}
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="{% url 'pet-detail' pet.id %}">{{pet.name}}</a>
+        </h4>
+        <p class="card-text">Pet Age: {{pet.age}}</p>
+        <p class="card-text">Price: {{pet.price}}</p>
+        <a href="{% url 'pet-detail' pet.id %}" class="btn btn-round btn-block btn-primary">View Pet</a>
       </div>
     </div>
-    {% endfor %}
+  </div>
+  {% endfor %}
 
 
 

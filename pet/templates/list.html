@@ -1,13 +1,31 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <!-- extra empty space -->
+{% extends "base.html" %}
+
+{% block title %}Pet Shop{% endblock title %}
+
+{% block content %}
+<br>
+<div class="row">
+
+
     {% for pet in pets %}
-      <p>{{pet.name}}</p>
+    <div class="col-12 col-sm-6 col-md-4 my-5">
+      <div class="card">
+        <img src="{{pet.image.url}}" class="card-img-top " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{pet.name}}</h5>
+          <hr>
+          <p class="activity-text">Pet Age:</p>
+          <p class="card-text">{{pet.age}}</p>
+        </div>
+        <div class="card-footer" >
+          <a href="{% url 'pet-detail' pet.id %}" class="btn btn-sm btn-block">Read more</a>
+        </div>
+      </div>
+    </div>
     {% endfor %}
-  </body>
-</html>
+
+
+
+
+</div>
+{% endblock content %}

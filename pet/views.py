@@ -38,7 +38,7 @@ def update_pet(request, pet_id):
         form = PetForm(request.POST, request.FILES, instance=pet_obj)
         if form.is_valid():
             form.save()
-            return redirect('pet-detail', pet_id=pet_obj.id)
+            return redirect(pet_obj)
     context = {
         "form" : form,
         "pet": pet_obj,
